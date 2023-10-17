@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+  <title>TODO APP</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <header>
+
+        <div class="heading">
+          <h1>TODO</h1>
+          <img src="./assets/images/icon-sun.svg" alt="">
+        </div>
+        
+        <span class="add"></span>
+        <div class="user-input">
+          <input type="text"
+          placeholder="Create a new todo..."
+         class="input"
+          id="todo_input">
+        </div>
+        
+      </header>
+
+      <div class="content">
+        <div class="todo">
+          <div class="todo_list">
+            <ul class="append">
+              
+            </ul>
+            <div class="todo_remaining">
+              <p id="items_left">5 items left</p>
+              <p id="clear">Clear Completed</p>  
+            </div>
+          </div>
+        </div>
+        
+  
+        <div class="todo_status">
+          <button class="status" id="all">All</button>
+          <button class="status" id="active">Active</button>
+          <button class="status" id="completed">Completed</button>
+        </div>
+  
+        <footer>
+          <p>Drag and drop to render list</p>
+        </footer>
+      </div>
+      
+    </div>
+  </main>
+  <script src="./assets/script.js"></script>
+</body>
+</html>
