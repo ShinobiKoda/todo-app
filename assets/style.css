@@ -47,7 +47,7 @@ main{
 
 header{
   width: 100%;
-  background-image: url(/assets/images/bg-mobile-dark.jpg);
+  background-image: url(./assets/images/bg-mobile-dark.jpg);
   padding-inline: 1.2rem;
   padding-top: 2rem;
   padding-bottom: 5rem;
