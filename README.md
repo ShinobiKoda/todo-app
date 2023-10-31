@@ -18,4 +18,4 @@ This is a solution to the [Todo App](https://www.frontendmentor.io/challenges/to
 ## 🔗 Links
 
 - [Live Site URL](https://shinobikoda.github.io/todo-app/)
-- [View Solution on Frontend Mentor](https://www.frontendmentor.io/challenges/manage-landing-page-SLXqC6P5/hub?share=true)
+- [View Solution on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub?share=true)
