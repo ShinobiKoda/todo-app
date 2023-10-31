@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       secStatus.style.display = "flex";
       // Hide the todoStatus element
       todoStatus.style.display = "none";
+    }
   }
 
   // Add an input event listener to call the updateDisplay function
