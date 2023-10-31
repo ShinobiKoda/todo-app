@@ -12,7 +12,7 @@ This is a solution to the [Todo App](https://www.frontendmentor.io/challenges/to
 | Desktop | Mobile |
 | :----------------: | :---------------: |
 | ![desktop-screenshot](https://github.com/ShinobiKoda/todo-app/assets/145020092/0710fca9-5709-4175-9d09-09e5b40c6b7b)
-) | ![mobile-screenshot](![image](https://github.com/ShinobiKoda/todo-app/assets/145020092/4592d708-1d8e-4286-a676-734582483836)
+) | ![mobile-screenshot](https://github.com/ShinobiKoda/todo-app/assets/145020092/4592d708-1d8e-4286-a676-734582483836)
 ) |
 
 ## 🔗 Links
