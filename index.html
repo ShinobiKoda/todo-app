@@ -14,8 +14,11 @@
 
         <div class="heading">
           <h1>TODO</h1>
-          <img src="./assets/images/icon-sun.svg" alt="" class="sun">
-          <img src="./assets/images/icon-moon.svg" alt="" class="moon">
+          <div class="mode">
+            <img src="./assets/images/icon-sun.svg" alt="" class="sun">
+            <img src="./assets/images/icon-moon.svg" alt="" class="moon">
+          </div>
+         
         </div>
         
         <div class="user-input">
@@ -34,6 +37,7 @@
             <ul class="append">
               
             </ul>
+
             <div class="todo_remaining">
               <p id="items_left"><span class="remains">No</span> items left</p>
               <p id="clear" class="clear">Clear Completed</p>  
@@ -48,6 +52,18 @@
           <button class="status" id="completed">Completed</button>
         </div>
   
+        <div class="sec-status">
+          <button class="items_left"><span id="items-left">3</span> Items left</button>
+
+          <div class="btn">
+            <button id="all-desktop">All</button>
+            <button id="active-desktop">Active</button>
+            <button id="completed-desktop">Completed</button>
+          </div>
+
+          <button id="clear-desktop">Clear Completed</button>
+        </div>
+
         <footer class="footer">
           <p>Drag and drop to render list</p>
         </footer>

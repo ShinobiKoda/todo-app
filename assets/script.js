@@ -7,34 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const all = document.getElementById("all");
   const active = document.getElementById("active");
   const completed = document.getElementById("completed");
-  const sun = document.querySelector(".sun");
-  const moon = document.querySelector(".moon");
-  const status = document.querySelector(".todo_status");
-  const content = document.querySelector(".content");
-  const header = document.querySelector(".header");
  
-
-  sun.addEventListener("click", () => {
-    header.classList.toggle("heading-background");
-    input.classList.toggle("light-mode");
-    todo.classList.toggle("light-mode");
-    moon.style.display = "block";
-    sun.style.display = "none";
-    append.classList.toggle("color");
-    status.classList.toggle("status-color");
-    content.classList.toggle("footer-color");
-  });
-
-  moon.addEventListener("click", () => {
-    header.classList.toggle("heading-background");
-    sun.style.display = "block";
-    moon.style.display = "none";
-    input.classList.toggle("light-mode");
-    todo.classList.toggle("light-mode");
-    append.classList.toggle("color");
-    status.classList.toggle("status-color");
-    content.classList.toggle("footer-color");
-  });
 
   todo.style.display = "none";
 
