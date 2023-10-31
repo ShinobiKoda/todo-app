@@ -160,7 +160,7 @@ header .user-input img{
   flex-direction: column;
   gap: 1.5rem;
   color: #fff;
-  height: 270px;
+  height: 400px;
   overflow-x: hidden;
 } 
 
@@ -210,7 +210,7 @@ header .user-input img{
 }
 
 .checked{
-  background-image: url(/assets/images/icon-check.svg);
+  background-image: url(./images/icon-check.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--bright-blue);
@@ -222,7 +222,7 @@ header .user-input img{
 }
 
 .todo_status{
-  display: flex;
+  display: none;
   gap: 2rem;
   background-color: var(--very-dark-desaturated-blue);
   padding: 1rem 3rem;
@@ -249,12 +249,12 @@ header .user-input img{
 }
 
 .footer{
-  margin-top: 0.5rem;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--very-dark-grayish-blue);
+  padding-block: 1rem;
 }
 
 .clear:hover{
@@ -322,6 +322,7 @@ header .user-input img{
     max-width: 500px;
     padding: 1rem 0;
     margin-top: -1rem;
+    display: none;
 
   }
 
@@ -357,6 +358,13 @@ header .user-input img{
     display: none;
   }
 
+  .footer{
+    margin: 0;
+  }
+
+  .drag{
+    padding-block: 3rem;
+  }
   
 
 }

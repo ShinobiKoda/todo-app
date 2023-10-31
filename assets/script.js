@@ -7,14 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const all = document.getElementById("all");
   const active = document.getElementById("active");
   const completed = document.getElementById("completed");
+  const allDesktop = document.getElementById("all-desktop");
+  const activeDesktop = document.getElementById("active-desktop");
+  const completeDdesktop= document.getElementById("completed-desktop");
+  const itemsLeft = document.getElementById("items-left");
+  const secStatus = document.querySelector(".sec-status");
+  const clearDesktop = document.getElementById("clear-desktop");
+  const todoStatus = document.querySelector(".todo_status");
  
 
   todo.style.display = "none";
 
+  let screenWidth = window.screen.width;
+
   input.addEventListener("input", () => {
-    if (input.value !== "") {
+    if (input.value !== "" && screenWidth < 600) {
       todo.style.display = "block";
-    }
+      todoStatus.style.display = "flex";
+    } 
+
+    if (input.value !== "" && screenWidth > 600) {
+      todo.style.display = "block";
+      secStatus.style.display = "flex";
+    } 
   });
 
   input.addEventListener("keydown", (event) => {
@@ -125,13 +140,21 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTodosCount();
   };
 
+
+
+  // 4. Update the todos count
+
   const updateTodosCount = () => {
     const todos = document.querySelectorAll(".item"); // Select all todo items
     const todosCount = todos.length; // Get the count of todo items
     const todosCountElement = document.querySelector(".remains"); // Select the element to display the count
 
     todosCountElement.textContent = `${todosCount}`; // Update the element's text content with the count
+    itemsLeft.innerText = todosCount;
+
   };
+
+ 
 
   const loadTodos = () => {
     for (let i = 0; i < localStorage.length; i++) {
@@ -188,6 +211,21 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTodosCount();
   });
 
+  clearDesktop.addEventListener("click", () => {
+    const completedTodos = document.querySelectorAll(".item");
+    completedTodos.forEach((todo) => {
+      const isCompleted = todo
+        .querySelector(".todo-text")
+        .classList.contains("complete");
+      if (isCompleted) {
+        const todoId = todo.getAttribute("data-todo-id");
+        localStorage.removeItem(`todo_${todoId}`);
+        todo.remove();
+      }
+    });
+    updateTodosCount();
+  });
+
   all.addEventListener("click", () => {
     showTodos("all");
   });
@@ -197,6 +235,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   completed.addEventListener("click", () => {
+    showTodos("completed");
+  });
+
+  allDesktop.addEventListener("click", () => {
+    showTodos("all");
+  });
+
+  activeDesktop.addEventListener("click", () => {
+    showTodos("active");
+  });
+
+  completeDdesktop.addEventListener("click", () => {
     showTodos("completed");
   });
 
