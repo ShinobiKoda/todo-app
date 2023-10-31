@@ -9,28 +9,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const completed = document.getElementById("completed");
   const allDesktop = document.getElementById("all-desktop");
   const activeDesktop = document.getElementById("active-desktop");
-  const completeDdesktop= document.getElementById("completed-desktop");
+  const completeDdesktop = document.getElementById("completed-desktop");
   const itemsLeft = document.getElementById("items-left");
   const secStatus = document.querySelector(".sec-status");
   const clearDesktop = document.getElementById("clear-desktop");
   const todoStatus = document.querySelector(".todo_status");
- 
 
   todo.style.display = "none";
 
-  let screenWidth = window.screen.width;
+  // Define a function to update the display based on screen width
+  function updateDisplay() {
+    // Get the current screen width
+    let screenWidth = window.innerWidth;
 
-  input.addEventListener("input", () => {
+    // Check the input value and the screen width
     if (input.value !== "" && screenWidth < 600) {
+      // Show the todo and todoStatus elements
       todo.style.display = "block";
       todoStatus.style.display = "flex";
-    } 
-
-    if (input.value !== "" && screenWidth > 600) {
+      // Hide the secStatus element
+      secStatus.style.display = "none";
+    } else if (input.value !== "" && screenWidth > 600) {
+      // Show the todo and secStatus elements
       todo.style.display = "block";
       secStatus.style.display = "flex";
-    } 
-  });
+      // Hide the todoStatus element
+      todoStatus.style.display = "none";
+    }
+  }
+
+  // Add an input event listener to call the updateDisplay function
+  input.addEventListener("input", updateDisplay);
+
+  // Add a resize event listener to call the updateDisplay function
+  window.addEventListener("resize", updateDisplay);
+
+  // Call the updateDisplay function once initially
+  updateDisplay();
 
   input.addEventListener("keydown", (event) => {
     // Check if the pressed key is Enter
@@ -105,24 +120,22 @@ document.addEventListener("DOMContentLoaded", () => {
     circle.addEventListener("click", () => {
       const todoId = li.getAttribute("data-todo-id");
       const storedTodo = JSON.parse(localStorage.getItem(`todo_${todoId}`));
-  
+
       if (storedTodo) {
-          // Toggle the completed property based on the presence of 'checked' class
-          storedTodo.completed = !storedTodo.completed;
-  
-          // Save the updated todo back to localStorage
-          localStorage.setItem(`todo_${todoId}`, JSON.stringify(storedTodo));
+        // Toggle the completed property based on the presence of 'checked' class
+        storedTodo.completed = !storedTodo.completed;
+
+        // Save the updated todo back to localStorage
+        localStorage.setItem(`todo_${todoId}`, JSON.stringify(storedTodo));
       }
-  
+
       // Toggle the 'complete' class on the todo text
       p.classList.toggle("complete");
       // Toggle the 'checked' class on the circle
       circle.classList.toggle("checked");
-  
+
       updateTodosCount();
-  });
-  
-  
+    });
 
     // 3. Delete a todo item
     img.addEventListener("click", () => {
@@ -140,8 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTodosCount();
   };
 
-
-
   // 4. Update the todos count
 
   const updateTodosCount = () => {
@@ -151,10 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     todosCountElement.textContent = `${todosCount}`; // Update the element's text content with the count
     itemsLeft.innerText = todosCount;
-
   };
-
- 
 
   const loadTodos = () => {
     for (let i = 0; i < localStorage.length; i++) {
@@ -162,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (key.startsWith("todo_")) {
         const todo = JSON.parse(localStorage.getItem(key));
         createTodo(todo.text, todo.completed, todo.id);
-  
+
         // Check if the todo is completed and apply 'complete' and 'checked' classes
         const circleElement = document.querySelector(
           `[data-todo-id="${todo.id}"] .circle`
@@ -178,7 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     updateTodosCount();
   };
-  
 
   loadTodos();
 
